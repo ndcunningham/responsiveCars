@@ -17,10 +17,7 @@ export class ViewCarPageComponent implements OnDestroy {
 
   constructor(store: Store<any>, route: ActivatedRoute) {
     this.subscription = route.params
-      .pipe(
-        tap(p => console.log({ p })),
-        map(params => new fromRootActions.HomePageActions.ViewCar({ id: params.id }))
-      )
+      .pipe(map(params => new fromRootActions.HomePageActions.ViewCar({ id: params.id })))
       .subscribe(store);
   }
 
